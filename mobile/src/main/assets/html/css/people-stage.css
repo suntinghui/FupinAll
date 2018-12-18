@@ -1,0 +1,76 @@
+.screen {
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	width: 200px;
+	border: 1px solid #0160d4;
+	border-radius: 25px;
+	margin: 20px 0;
+	text-align: center;
+	/*overflow: hidden;*/
+}
+
+.screen a {
+	float: left;
+	width: 40%;
+	color: #0160d4;
+	height: 31.5px;
+	display: block;
+}
+
+.screen a.active {
+	color: #FFFFFF;
+	border-radius: 25px;
+	background: #0160D4;
+	width: 60%;
+}
+
+.lists li {
+	width: 285px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.lists li .v-img {
+	width: 100%;
+	height: 136px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 5px;
+}
+
+.lists li .v-img img {
+	display: block;
+	width: 100%;
+}
+
+.lists li .v-img p {
+	height: 35px;
+	line-height: 40px;
+	color: #FFFFFF;
+	font-size: 13px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	text-align: right;
+	background: #000;
+	background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+	;
+	/*FireFox*/
+	background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+	/* Opear */
+	background: -ms-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+	/*IE10及IE10+*/
+}
+.lists li .title{
+	height: 42px;
+	line-height: 21px;
+}
+.lists li .count{
+	color: #8c8c8c;
+	font-size: 10px;
+	margin-top: 5px;
+}

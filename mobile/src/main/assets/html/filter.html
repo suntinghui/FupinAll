@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pagination.css"/>
+    <link rel="stylesheet" href="css/filter.css"/>
+</head>
+
+<body class="page">
+<div class="header container"></div>
+
+<div class="divider">
+    <div class="container">
+        <a href="search.html">综合</a>
+        <a class="active">筛选</a>
+    </div>
+</div>
+
+<div class="container center">
+    <div class="filter-box">
+        <div class="line">
+            <label>分类：</label>
+            <a>百姓大舞台</a>
+            <a>农林科学</a>
+            <a>法制剧场</a>
+            <a>少儿乐园</a>
+            <a>文化讲堂</a>
+            <a>经典影片</a>
+            <a>职业技能</a>
+            <a>自然百科</a>
+        </div>
+        <div class="line">
+            <label>发布时间：</label>
+            <a>全部</a>
+            <a>最近一周</a>
+            <a>最近一月</a>
+        </div>
+        <div class="line">
+            <label>地区：</label>
+            <a>省内</a>
+            <a>省外</a>
+        </div>
+    </div>
+
+    <ul class="list">
+
+    </ul>
+    <div class="m-style"></div>
+</div>
+<div class="footer"></div>
+
+<!-- -------数据渲染------- -->
+<script id="list" type="text/html">
+    {{each list item i}}
+    <li>
+        <img class="img" src="{{item.img}}" alt="">
+        <div class="list-content">
+            <p class="title">{{item.title}}</p>
+            {{if item.type}}
+            <div class="label">
+                <div>
+                    <span class="gray">发布时间：</span>{{item.time}}
+                </div>
+                <div>
+                    <span class="gray">类型: </span>{{item.type}}
+                </div>
+            </div>
+            {{else}}
+            <div class="label">
+                <div>
+                    <span class="gray">主演: </span>{{item.actor}}
+                </div>
+                <div>
+                    <span class="gray">导演: </span>{{item.director}}
+                </div>
+            </div>
+            <p class="intro">
+                <span class="gray">简介：</span>
+                {{item.intro}}...
+                <a class="more" href="{{item.href}}">详情>></a>
+            </p>
+            <div class="num">
+                {{if item.num.length>18}} {{each item.omit1}}
+                <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                {{/each}}
+                    <span class="num-hide">
+                        {{each item.omit}}
+                        <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                        {{/each}}
+                    </span>
+                <a class="num-more">...</a>
+                {{each item.omit2}}
+                <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                {{/each}} {{else}} {{each item.num}}
+                <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                {{/each}} {{/if}}
+            </div>
+            {{/if}}
+        </div>
+    </li>
+    {{/each}}
+</script>
+</body>
+<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/filter.js"></script>
+
+</html>

@@ -1,0 +1,8 @@
+.no-data{
+    line-height:150px;
+    border-bottom: 1px solid #ddd;
+}
+
+.no-data span{
+    color: #ff9339;
+}

@@ -1,0 +1,263 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+input,
+button,
+textarea,
+select,
+option {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input,
+select {
+    -webkit-appearance: none;
+}
+
+select,
+textarea {
+    resize: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    color: #333333;
+}
+
+:link,
+:visited,
+ins {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    ssoverflow: auto;
+    _height: 1%
+}
+
+.over {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.t-over {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cl {
+    clear: both;
+}
+
+.n {
+    font-weight: normal;
+    font-style: normal;
+}
+
+.b {
+    font-weight: bold;
+}
+
+.i {
+    font-style: italic;
+}
+
+.fa {
+    font-family: Arial;
+}
+
+.fs {
+    font-family: SimSun;
+}
+
+.fw {
+    font-family: "Microsoft YaHei";
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tdn,
+.tdn:hover,
+a.tdl:hover {
+    text-decoration: none;
+}
+
+.g0 {
+    color: #000000;
+}
+
+.g3 {
+    color: #333333;
+}
+
+.g6 {
+    color: #666666;
+}
+
+.g9 {
+    color: #999999;
+}
+
+.red {
+    color: red;
+}
+
+.wh {
+    color: white;
+}
+
+.vm {
+    vertical-align: middle;
+}
+
+.vtb {
+    vertical-align: text-bottom;
+}
+
+.vt {
+    vertical-align: top;
+}
+
+.m0 {
+    margin: 0;
+}
+
+.rel {
+    position: relative;
+}
+
+.abs {
+    position: absolute;
+}
+
+.dn {
+    display: none;
+}
+
+.db {
+    display: block;
+}
+
+.dib {
+    -moz-inline-stack: inline-block;
+    display: inline-block;
+}
+
+.di {
+    display: inline;
+}
+
+.ovh {
+    overflow: hidden;
+}
+
+.ovs {
+    overflow: scroll;
+}
+
+.fix {
+    *zoom: 1;
+}
+
+.fix:after,
+.fix:before {
+    display: block;
+    content: "clear";
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.text-ellipsis{
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

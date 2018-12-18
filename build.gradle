@@ -1,0 +1,64 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'http://4thline.org/m2'
+        }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'http://4thline.org/m2'
+        }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // 最低支持Android版本
+    minSdkVersion = 19
+    // 目标版本
+    targetSdkVersion = 25
+    // 用于编译的SDK版本
+    compileSdkVersion = 25
+    // 用于Gradle编译项目的工具版本
+    buildToolsVersion = '25.0.2'
+    //Dependencies
+    supportLibraryVersion = '25.3.1'
+
+    // 设置是否使用混淆
+    MINIFY_ENABLED = true
+    MINIFY_DISABLED = false
+
+    // 应用程序包名
+    applicationId = "com.jkrm.fupin"
+    applicationDbPacgage = "com.jkrm.fupin.db"
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/common_background">
+
+    <include
+        layout="@layout/common_title2"/>
+
+    <View
+        style="@style/common_line_h" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/bg_text_gray"
+        android:orientation="horizontal">
+
+        <!--android:textColor="@drawable/bg_selector_white"-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="是否开启数据源服务, 将数据共享给其他设备(注: 再次启用后, 需重新进入该页面方可生效)"
+            style="@style/middle_color_FFFFFF_text"
+            android:gravity="center_vertical"/>
+
+        <CheckBox
+            android:id="@+id/cb_boxShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:checked="true"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/iv_boxShareSwitch"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_clip_type_selector"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</LinearLayout>

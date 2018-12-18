@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>新闻资讯</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/pagination.css" />
+		<link rel="stylesheet" href="css/news.css" />
+	</head>
+
+	<body class="page">
+		<div class="header container">
+
+		</div>
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li class="active">
+					<a href="people-stage.html">百姓大舞台</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">农业科学</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">法制剧场</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">少儿乐园</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">文化讲堂</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">经典影片</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">职业技能</a>
+				</li>
+			</ul>
+		</div>
+		<div class="container center">
+			<div class="router">
+				<a href="index.html">首页</a>>新闻资讯</div>
+			<div class="clearfix">
+				<div class="left-section fl">
+					<a href="" class="active">新闻动态</a>
+					<a href="">政策补贴</a>
+					<a href="">致富故事</a>
+				</div>
+				<div class="right-section fr">
+					<ul class="news-list">
+
+					</ul>
+					<div class="m-style inner-box"></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+
+		</div>
+
+		<!-- -------数据渲染------- -->
+		<script id="news" type="text/html">
+			{{each list item i}}
+			<li>
+				<a href="{{item.url}}"><em></em><span class="over title">{{item.title}}</span><span class="time">{{item.time}}</span></a>
+			</li>
+			{{/each}}
+		</script>
+	</body>
+	<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/template-web.js"></script>
+	<script type="text/javascript" src="js/jquery.pagination.js"></script>
+	<script type="text/javascript" src="js/layer.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script>
+		var data = {
+			list: [{
+				url: 'www.baidu.com',
+				title: '致富新技术-大葱种植技术大葱种植技术大葱种植技术大葱种植技',
+				time: '2018-03-03'
+			},{
+				url: 'baidu.com',
+				title: '致富新技术-大葱种植技术大葱种植技术大葱种植技术大葱种植技',
+				time: '2018-03-03'
+			},{
+				url: 'baidu.com',
+				title: '致富新技术-大葱种植技术大葱种植技术大葱种植技术大葱种植技',
+				time: '2018-03-03'
+			},{
+				url: 'baidu.com',
+				title: '致富新技术-大葱种植技术大葱种植技术大葱种植技术大葱种植技',
+				time: '2018-03-03'
+			},{
+				url: 'baidu.com',
+				title: '致富新技术-大葱种植技术大葱种植技术大葱种植技术大葱种植技',
+				time: '2018-03-03'
+			},{
+				url: 'baidu.com',
+				title: '致富新技术-大葱种植技术大葱种植技术大葱种植技术大葱种植技',
+				time: '2018-03-03'
+			}]
+		}
+
+		var html = template('news', data);
+		$('.news-list').html(html);
+		var page = (data.list.length) % 16 == 0 ? (data.list.length) / 16 : ((data.list.length) / 16) + 1;
+		$('.inner-box').pagination({
+			pageCount: page,
+			coping: true,
+			homePage: '首页',
+			endPage: '末页',
+			prevContent: '上一页',
+			nextContent: '下一页',
+			callback: function(api) {
+				console.log(api.getCurrent())
+			}
+		});
+		
+	</script>
+
+</html>

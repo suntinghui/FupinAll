@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>首页</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/pagination.css" />
+		<link rel="stylesheet" href="css/people-stage.css" />
+	</head>
+
+	<body class="page">
+		<div class="header container">
+			
+		</div>
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li class="active">
+					<a href="people-stage.html">百姓大舞台</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">农业科学</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">法制剧场</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">少儿乐园</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">文化讲堂</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">经典影片</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">职业技能</a>
+				</li>
+			</ul>
+		</div>
+
+		<img class="banner" src="img/banner.jpg">
+		<div class="container center">
+			<div class="screen clearfix">
+				<a href="javascript:void(0)" class="active">省内</a>
+				<a href="javascript:void(0)">省外</a>
+			</div>
+            
+			<div class="lists">
+              <ul class="inner clearfix">
+              	
+              </ul>
+              <div class="m-style inner-box"></div>
+			</div>
+			<div class="lists" style="display: none;">
+			<ul class="outer clearfix" >
+
+			</ul>
+			<div class="m-style outer-box"></div>
+			</div>
+		</div>
+		<div class="footer">
+			
+		</div>
+
+		<!-- -------数据渲染------- -->
+		<script id="inner" type="text/html">
+			{{each list item i}}
+			<li>
+				<a href="{{item.href}}">
+					<div class="v-img">
+						<img src="{{item.img}}" alt="">
+						<p>{{item.time}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+					<p class="title t-over">{{item.title}}</p>
+					<span class="count">{{item.count}}次播放</span>
+				</a>
+			</li>
+			{{/each}}
+			
+		</script>
+
+		<script id="outer" type="text/html">
+			{{each list item i}}
+			<li>
+				<a href="{{item.href}}">
+					<div class="v-img">
+						<img src="{{item.img}}" alt="">
+						<p>{{item.time}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					</div>
+					<p class="title t-over">{{item.title}}</p>
+					<span class="count">{{item.count}}次播放</span>
+				</a>
+			</li>
+			{{/each}}
+		</script>
+	</body>
+	<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/template-web.js"></script>
+	<script type="text/javascript" src="js/jquery.pagination.js" ></script>
+	<script type="text/javascript" src="js/layer.js" ></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/people-stage.js"></script>
+</html>

@@ -1,0 +1,153 @@
+.video-js .vjs-big-play-button{
+    top:50%;
+    left:50%;
+    margin-top:-22px;
+    margin-left:-40px;
+}
+
+.video-js .vjs-progress-control{
+    position: absolute;
+    top:-7px;
+    left:0;
+    width: 100%;
+    height:10px;
+}
+
+.video-js .vjs-progress-control .vjs-progress-holder{
+    margin: 0;
+}
+
+.video-js .vjs-play-progress:before{
+    color: blue;
+}
+
+.video-js .vjs-progress-holder .vjs-play-progress{
+    background-color: blue;
+}
+
+.video-js  .vjs-button[title=Fullscreen]{
+    float: right;
+}
+
+.video-box{
+    padding-top:20px;
+    background-color: #2e2e36;
+}
+.video {
+    float: left;
+    width:880px;
+}
+.movie-list{
+    float: right;
+    width:300px;
+}
+
+.movie-list .label{
+    position: relative;
+    padding-left:15px;
+    font-size:18px;
+    line-height:60px;
+    color: #fff;
+}
+
+.movie-list .label:before{
+    content:'';
+    display: block;
+    position: absolute;
+    left:0;
+    top:20px;
+    width: 4px;
+    height:21px;
+    background-color: #0160d4;
+    border-radius:2px;
+}
+
+.movie-list ul{
+    height:500px;
+    overflow: auto;
+}
+
+.movie-list ul::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.movie-list ul::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #555557;
+}
+.movie-list ul::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px transparent;
+    border-radius: 0;
+    background: transparent;
+}
+
+.movie-list a{
+    display: block;
+    position: relative;
+    margin-bottom:20px;
+    font-size:12px;
+    overflow: hidden;
+}
+
+.movie-list img{
+    float: left;
+    width:140px;
+    height:90px;
+}
+
+.movie-list .time{
+    position: absolute;
+    top:68px;
+    right:163px;
+    padding:1px 4px;
+    font-size:10px;
+    color: #fff;
+    background-color: rgba(0,0,0,.5);
+}
+
+.movie-list .box{
+    float: left;
+    width:130px;
+    margin-left:10px;
+}
+
+.movie-list .box .title{
+    height:40px;
+    font-size:12px;
+    line-height:20px;
+    color: #999;
+    overflow: hidden;
+}
+
+.movie-list .column{
+    margin: 4px 0 8px 0;
+    color: #666;
+}
+
+.movie-list .play{
+    padding-left:16px;
+    color: #666;
+    background: url("../img/icon/movie.png") no-repeat left center;
+}
+
+.video-box .title{
+    clear: both;
+    font-size:24px;
+    line-height:82px;
+    color: #c4ccce;
+}
+
+.center .label{
+    margin-top:15px;
+    font-size:26px;
+    line-height:60px;
+}
+
+#content{
+    padding-bottom:45px;
+    font-size:12px;
+    line-height:2;
+    text-indent: 2em;
+    letter-spacing: 1px;
+}

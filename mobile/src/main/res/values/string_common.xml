@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_net_error">网络异常,请稍后重试</string>
+    <string name="common_net_error_server">服务器暂时无法连接</string>
+    <string name="common_net_error_unknown">暂时无法为您提供服务</string>
+</resources>

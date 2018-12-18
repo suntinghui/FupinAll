@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/common_background"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/app_name"
+        android:textSize="@dimen/dimen_title"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="62dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            style="@style/middle_color_FFFFFF_text"
+            android:text="账号："/>
+
+        <EditText
+            android:id="@+id/et_account"
+            android:layout_width="270dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:singleLine="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:nextFocusDown="@+id/et_password"
+            style="@style/middle_color_FFFFFF_text"
+            android:background="@drawable/bg_view_focus_primary"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="62dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            style="@style/middle_color_FFFFFF_text"
+            android:text="密码："/>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="270dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            style="@style/middle_color_FFFFFF_text"
+            android:background="@drawable/bg_view_focus_primary"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="62dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="270dp"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_view_focus_primary"
+            android:text="@string/common_comfirm"/>
+
+    </LinearLayout>
+</LinearLayout>

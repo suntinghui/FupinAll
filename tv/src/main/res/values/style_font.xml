@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 小字体 -->
+    <style name="small_size_style">
+        <item name="android:textSize">@dimen/dimen_small</item>
+    </style>
+
+    <style name="small_color_FFFFFF_style" parent="@style/small_size_style">
+        <item name="android:textColor">@color/color_FFFFFF</item>
+    </style>
+
+    <style name="small_color_000000_style" parent="@style/small_size_style">
+        <item name="android:textColor">@color/color_000000</item>
+    </style>
+
+    <style name="small_blue_style" parent="@style/small_size_style">
+        <item name="android:textColor">@color/color_40A1EE</item>
+    </style>
+
+    <!-- 中字体 -->
+    <style name="middle_size_style">
+        <item name="android:textSize">@dimen/dimen_middle</item>
+    </style>
+
+    <style name="middle_color_FFFFFF_text" parent="@style/middle_size_style">
+        <item name="android:textColor">@color/color_FFFFFF</item>
+    </style>
+    
+    <style name="middle_color_000000_style" parent="@style/middle_size_style">
+        <item name="android:textColor">@color/color_000000</item>
+    </style>
+    
+    <!-- 大字体 -->
+    <style name="big_size_style">
+        <item name="android:textSize">@dimen/dimen_big</item>
+    </style>
+
+    <style name="big_color_FFFFFF_style" parent="@style/big_size_style">
+        <item name="android:textColor">@color/color_FFFFFF</item>
+    </style>
+
+     <style name="big_color_000000_style" parent="@style/big_size_style">
+        <item name="android:textColor">@color/color_000000</item>
+    </style>
+
+    <!-- 标题字体 -->
+    <style name="title_size_style">
+        <item name="android:textSize">@dimen/dimen_title</item>
+    </style>
+
+    <style name="title_color_white_style" parent="@style/title_size_style">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="title_color_primary_style" parent="@style/title_size_style">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/common_background">
+
+    <include
+        layout="@layout/common_title2"/>
+
+    <View
+        style="@style/common_line_h" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_codeBitmapIos"
+                android:layout_width="126dp"
+                android:layout_height="126dp"
+                android:src="@mipmap/icon_app_android"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Android下载"
+                android:layout_marginTop="10dp"
+                style="@style/middle_color_FFFFFF_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_codeBitmapAndroid"
+                android:layout_width="126dp"
+                android:layout_height="126dp"
+                android:src="@mipmap/icon_app_ios"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="ios下载"
+                android:layout_marginTop="10dp"
+                style="@style/middle_color_FFFFFF_text"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

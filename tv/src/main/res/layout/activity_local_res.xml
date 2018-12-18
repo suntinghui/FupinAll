@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/common_background">
+
+    <include layout="@layout/common_title2" />
+
+    <View
+        style="@style/common_line_h" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:minHeight="60dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/middle_color_FFFFFF_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="本地视频" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rcv_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="30dp" />
+
+                <TextView
+                    android:id="@+id/tv_emptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    style="@style/small_color_FFFFFF_style"
+                    android:text="暂无数据"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:minHeight="60dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/middle_color_FFFFFF_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="本地音频" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rcv_data2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp" />
+
+                <TextView
+                    android:id="@+id/tv_emptyView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    style="@style/small_color_FFFFFF_style"
+                    android:text="暂无数据"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

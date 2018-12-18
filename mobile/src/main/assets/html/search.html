@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pagination.css" />
+    <link rel="stylesheet" href="css/filter.css" />
+    <link rel="stylesheet" href="css/search.css" />
+</head>
+
+<body class="page">
+<div class="header container"></div>
+
+<div class="divider">
+    <div class="container">
+        <a class="active">综合</a>
+        <a href="filter.html">筛选</a>
+    </div>
+</div>
+
+<div class="container center">
+
+    <ul class="list"></ul>
+
+    <div class="m-style"></div>
+
+    <div class="title-line">
+        <span>相关推荐</span>
+        <a class="fr" href="live.html">更多>></a>
+    </div>
+    <div id="live" class="live-list"></div>
+</div>
+<div class="footer">
+    <div class="container">
+        <span>版权所有：山西省文化厅 晋ICP备05003231号-1</span>
+        <span>晋公网安备 14010602060401号</span>
+        <span>地址：太原市解放南路文源巷5号 电话： 03514046256</span>
+    </div>
+</div>
+
+<!-- -------数据渲染------- -->
+<script id="list" type="text/html">
+    {{if list.length>0}}
+    {{each list item i}}
+    <li>
+        <img class="img" src="{{item.img}}" alt="">
+        <div class="list-content">
+            <p class="title">{{item.title}}</p>
+            {{if item.type}}
+            <div class="label">
+                <div>
+                    <span class="gray">发布时间：</span>{{item.time}}
+                </div>
+                <div>
+                    <span class="gray">类型: </span>{{item.type}}
+                </div>
+            </div>
+            {{else}}
+            <div class="label">
+                <div>
+                    <span class="gray">主演: </span>{{item.actor}}
+                </div>
+                <div>
+                    <span class="gray">导演: </span>{{item.director}}
+                </div>
+            </div>
+            <p class="intro">
+                <span class="gray">简介：</span>
+                {{item.intro}}...
+                <a class="more" href="{{item.href}}">详情>></a>
+            </p>
+            <div class="num">
+                {{if item.num.length>18}} {{each item.omit1}}
+                <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                {{/each}}
+                    <span class="num-hide">
+                        {{each item.omit}}
+                        <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                        {{/each}}
+                    </span>
+                <a class="num-more">...</a>
+                {{each item.omit2}}
+                <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                {{/each}} {{else}} {{each item.num}}
+                <a target="_blank" href="{{$value.href}}">{{$value.num}}</a>
+                {{/each}} {{/if}}
+            </div>
+            {{/if}}
+        </div>
+    </li>
+    {{/each}}
+    {{else}}
+    <p class="no-data">抱歉，没有搜到与“<span>{{search}}</span>”有关的内容</p>
+    {{/if}}
+</script>
+
+<script id="liveHtml" type="text/html">
+    {{each list}}
+    <a href="{{$value.src}}" class="item">
+        <img class="img" src="{{$value.img}}" alt="">
+        <p class="title text-ellipsis">{{$value.title}}</p>
+        <div class="fl person">
+            <img src="{{$value.headImg}}" alt="">
+            <span>{{$value.name}}</span>
+        </div>
+        <div class="fr person-num">
+            {{$value.personNum}}
+        </div>
+    </a>
+    {{/each}}
+</script>
+</body>
+<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
+</html>

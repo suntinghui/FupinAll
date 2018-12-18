@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:padding="10dp"
+    android:focusable="true"
+    >
+
+    <TextView
+        android:id="@+id/tv_item_tip"
+        android:textColor="@drawable/bg_selector_white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:drawablePadding="5dp"
+        android:drawableTop="@mipmap/ic_launcher"
+        android:text="@string/app_name"
+        android:paddingTop="13dp"
+        android:ellipsize="end"
+        android:background="@drawable/bg_cornor"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+</FrameLayout>
+

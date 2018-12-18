@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/common_title"/>
+
+    <View
+        style="@style/common_line_h"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_classify"
+        style="@style/item_tv_ellipsize2"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:hint="请选择视频分类"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcv_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        style="@style/middle_color_000000_style"
+        android:background="@drawable/bg_button_click"
+        android:text="添加"/>
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        style="@style/middle_color_000000_style"
+        android:background="@drawable/bg_button_click"
+        android:text="上传"/>
+</LinearLayout>

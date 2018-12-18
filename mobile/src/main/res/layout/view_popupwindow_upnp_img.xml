@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_clip_create_menu"
+    android:orientation="vertical"
+    android:paddingTop="7dp">
+
+    <TextView
+        android:id="@+id/tv_slide"
+        style="@style/middle_color_000000_style"
+        android:layout_width="145dp"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="幻灯片播放" />
+
+    <TextView
+        android:id="@+id/tv_download"
+        style="@style/middle_color_000000_style"
+        android:layout_width="145dp"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="下载" />
+
+</LinearLayout>

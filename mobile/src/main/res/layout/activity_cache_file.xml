@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_title" />
+
+    <View style="@style/common_line_h" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/ll_edit"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_selectAll"
+                style="@style/middle_color_000000_style"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="5dp"
+                android:textColor="@drawable/bg_selector_black"
+                android:background="@null"
+                android:text="全选" />
+
+            <View
+                style="@style/common_line_v"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <Button
+                android:id="@+id/btn_delete"
+                style="@style/middle_color_000000_style"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textColor="@drawable/bg_selector_black"
+                android:background="@null"
+                android:text="删除" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line_bottom"
+            android:layout_above="@id/ll_edit"
+            style="@style/common_line_h" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/line_bottom"
+            android:background="@color/color_FFFFFF" />
+
+        <TextView
+            android:id="@+id/tv_noData"
+            style="@style/big_color_000000_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="51dp"
+            android:background="@color/color_FFFFFF"
+            android:gravity="center"
+            android:text="暂无离线缓存视频"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+</LinearLayout>

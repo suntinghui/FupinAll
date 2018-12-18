@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/common_background">
+
+    <include
+        layout="@layout/common_title2"/>
+
+    <View
+        style="@style/common_line_h" />
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:hint="请输入搜索关键字"
+        android:focusable="true"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColorHint="@color/color_999999"
+        android:imeOptions="actionSearch"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_text_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                style="@style/middle_color_FFFFFF_text"
+                android:text="分类: "/>
+
+            <TextView
+                android:id="@+id/tv_classify"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/middle_color_FFFFFF_text"
+                android:background="@drawable/bg_layout_select"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                style="@style/middle_color_FFFFFF_text"
+                android:text="发布时间: "/>
+
+            <TextView
+                android:id="@+id/tv_publishTime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/middle_color_FFFFFF_text"
+                android:background="@drawable/bg_layout_select"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                style="@style/middle_color_FFFFFF_text"
+                android:text="地区: "/>
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/middle_color_FFFFFF_text"
+                android:background="@drawable/bg_layout_select"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        style="@style/big_color_FFFFFF_style"
+        android:visibility="gone"
+        android:text="未搜索到相关数据"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcv_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp" />
+
+</LinearLayout>

@@ -1,0 +1,106 @@
+.divider {
+    line-height: 40px;
+    background-color: #f2f2f2;
+}
+
+.divider a {
+    margin-right: 30px;
+    font-size: 16px;
+    color: #a6a6a6;
+}
+
+.divider a.active {
+    color: #0160d3;
+}
+
+.filter-box {
+    margin: 10px 0;
+    padding: 5px 13px;
+    border: 1px solid #ddd;
+}
+
+.filter-box .line {
+    line-height: 34px;
+}
+
+.filter-box label {
+    display: inline-block;
+    width: 80px;
+    color: #999;
+}
+
+.filter-box a {
+    margin-right: 28px;
+}
+
+.filter-box a.active {
+    color: #0160d3;
+}
+
+.list li {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+
+.list .img {
+    float: left;
+    width: 266px;
+    height: 160px;
+}
+
+.list .list-content {
+    margin-left: 285px;
+}
+
+.list .title {
+    padding-top: 5px;
+    font-size: 16px;
+    line-height: 34px;
+    color: #000;
+}
+
+.list .label {
+    color: #666;
+    overflow: hidden;
+}
+
+.list .label>div {
+    float: left;
+    width: 270px;
+}
+
+.list .intro {
+    width: 610px;
+    margin: 15px 0 10px 0;
+}
+
+.list .gray {
+    color: #999;
+}
+
+.list .num a {
+    display: inline-block;
+    width: 40px;
+    margin: 5px 5px 0 0;
+    line-height: 28px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.list .more {
+    color: #0160d3;
+}
+
+.list .num-more {
+    cursor: pointer;
+}
+
+.list .num-hide {
+    display: none;
+}
+
+em {
+    color: red;
+    font-style: normal
+}

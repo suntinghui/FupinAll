@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="@style/Theme.Leanback"></style>
+
+    <!-- 自定义loading dialog -->
+    <style name="BaseDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="sytle_anim_pop_in_out" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_pop_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_pop_out</item>
+    </style>
+
+    <style name="prompt_dialog">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <!-- demo -->
+    <style name="Theme.Design" parent="Base.Theme.Design"></style>
+
+    <style name="Base.Theme.Design" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#ffdedbd4</item>
+        <item name="colorPrimaryDark">#ff1cbb2b</item>
+        <item name="colorAccent">#ffccff10</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+
+    <style name="MMTabButton">
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/bg_checkbox_menus</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:paddingTop">7.0dip</item>
+    </style>
+
+    <style name="Preference" parent="Theme.Design">
+        <item name="android:background">@color/bg_white</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item> <!-- preference标题文本颜色 -->
+        <item name="android:windowBackground">@color/bg_white</item> <!-- 窗体背景 -->
+        <item name="android:windowTitleBackgroundStyle">@color/bg_white</item> <!-- 窗体标题背景风格 -->
+        <item name="android:listViewStyle">@color/bg_white
+        </item> <!-- preference是一个LISTVIEW，这里设置该风格 -->
+        <item name="android:textColorPrimary">@color/white</item> <!-- preference一级文本颜色 -->
+        <item name="android:textColorSecondary">@color/white</item> <!-- preference二级文本颜色 -->
+    </style>
+
+    <!--普通dialog-->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style name="recyclerview_item_ll">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/recyclerview_item_height</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:focusable">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="recyclerview_item_ll_new">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/recyclerview_item_height2</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_cornor</item>
+    </style>
+    <style name="recyclerview_item_ll_inner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">110dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/bg_cornor</item>
+    </style>
+    <style name="recyclerview_item_iv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/recyclerview_item_image_height</item>
+        <item name="android:src">@mipmap/cover</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <style name="recyclerview_item_tv" parent="@style/middle_color_FFFFFF_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/recyclerview_item_title_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <style name="recyclerview_item_tv_new" parent="@style/middle_color_FFFFFF_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="common_line_h">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="common_background">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@mipmap/icon_background</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+
+</resources>

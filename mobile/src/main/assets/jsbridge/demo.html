@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type">
+        <title>
+            JsBridge 测试
+        </title>
+    </head>
+    
+    <body>
+        <p>
+            <xmp id="show" style='font-size:30px'></xmp>
+        </p>
+        <p>
+            <xmp id="init"></xmp>
+        </p>
+        <p>
+            <input type="button" id="enterUPNP" style='font-size:30px' value="upnp控制" onclick="upnpFun();"/>
+        </p>
+        <p>
+            <input type="button" id="enterTV" style='font-size:30px' value="TV投屏" onclick="dlnaFun();"/>
+        </p>
+        <p>
+            <input type="button" id="enterUpload" style='font-size:30px' value="上传文件" onclick="uploadFun();"/>
+        </p>
+        <p>
+            <input type="button" id="enterDownlad" style='font-size:30px' value="下载文件" onclick="downloadFun();"/>
+        </p>
+        <p>
+            <input type="button" id="enterCache" style='font-size:30px' value="离线缓存" onclick="cacheFun();"/>
+        </p>
+
+        <p>
+            <input type="button" id="enter2" style='font-size:30px' value="显示html" onclick="showHtml();" />
+        </p>
+    </body>
+    <script>
+        function showHtml() {
+            document.getElementById("show").innerHTML = document.getElementsByTagName("html")[0].innerHTML;
+        }
+
+        function upnpFun() {
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'upnpFun'
+                , {'param': '中文测试'}
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = "调用APP端upnp方法后， APP端返回的数据内容 = " + responseData
+                }
+            );
+        }
+        function uploadFun() {
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'uploadFile'
+                , {'param': '中文测试'}
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = "调用APP端上传文件方法后， APP端返回的数据内容 = " + responseData
+                }
+            );
+        }
+        function downloadFun() {
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'downloadFile'
+                , {'param': '中文测试'}
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = "调用APP端下载文件方法后， APP端返回的数据内容 = " + responseData
+                }
+            );
+        }
+        function cacheFun() {
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'cacheLocal'
+                , {'param': '中文测试'}
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = "调用APP端离线缓存方法后， APP端返回的数据内容 = " + responseData
+                }
+            );
+        }
+        function dlnaFun() {
+            //call native method
+            window.WebViewJavascriptBridge.callHandler(
+                'dlnaTv'
+                , {'param': '中文测试'}
+                , function(responseData) {
+                    document.getElementById("show").innerHTML = "调用APP端投屏方法后， APP端返回的数据内容 = " + responseData
+                }
+            );
+        }
+
+        function bridgeLog(logContent) {
+            document.getElementById("show").innerHTML = logContent;
+        }
+
+        function connectWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) {
+                callback(WebViewJavascriptBridge)
+            } else {
+                document.addEventListener(
+                    'WebViewJavascriptBridgeReady'
+                    , function() {
+                        callback(WebViewJavascriptBridge)
+                    },
+                    false
+                );
+            }
+        }
+
+        connectWebViewJavascriptBridge(function(bridge) {
+            bridge.init(function(message, responseCallback) {
+                console.log('Js got a message', message);
+                var data = {
+                    'Javascript Responds': '测试中文!'
+                };
+                console.log('Js responding with', data);
+                responseCallback(data);
+            });
+
+            bridge.registerHandler("functionInJs", function(data, responseCallback) {
+                document.getElementById("show").innerHTML = ("APP端调用Js端方法functionInJs， js端接收到的数据内容 = " + data);
+                var responseData = "Javascript Says Right back aka!";
+                responseCallback(responseData);
+            });
+        })
+    </script>
+
+</html>

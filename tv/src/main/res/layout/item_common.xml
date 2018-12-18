@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_itemCommon"
+    android:layout_width="match_parent"
+    android:layout_height="210dp"
+    android:padding="10dp"
+    android:layout_gravity="center"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <com.jkrm.fupin.widgets.XCRoundRectImageView
+            android:id="@+id/iv_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/cover" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:background="@color/color_70000000"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <TextView
+                android:id="@+id/tv_left"
+                style="@style/small_color_FFFFFF_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="left|center_vertical"
+                android:text="2000-01-01" />
+
+            <TextView
+                android:id="@+id/tv_right"
+                style="@style/small_color_FFFFFF_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:text="50%"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_item_tip"
+        android:layout_below="@id/rl_image"
+        android:layout_alignParentBottom="true"
+        style="@style/middle_color_FFFFFF_text"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/color_transparent"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:gravity="center" />
+</RelativeLayout>
+

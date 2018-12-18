@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/common_background">
+
+    <include
+        layout="@layout/common_title2"/>
+
+    <View
+        style="@style/common_line_h" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcv_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="afterDescendants"
+        android:layout_margin="30dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_noData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/big_color_FFFFFF_style"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/common_no_data"/>
+</LinearLayout>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>个人中心</title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/per-center.css" />
+	</head>
+
+	<body class="page">
+		<div class="header container">
+
+		</div>
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li class="active">
+					<a href="people-stage.html">百姓大舞台</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">农业科学</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">法制剧场</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">少儿乐园</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">文化讲堂</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">经典影片</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">职业技能</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="container center">
+			<div class="main-section clearfix">
+				<div class="left-section fl">
+					<div class="tx">
+						<img src="img/img.jpg" />
+					</div>
+					<div class="tel">13300001111</div>
+					<div class="upload">
+						<input type="file" /> 上传头像
+					</div>
+					<div class="bar">
+						<a href="" ><em></em>播放记录</a>
+						<!--<a href=""><em></em>下载记录</a>-->
+						<a href=""><em></em>我的收藏</a>
+						<a href="" class="active"><em></em>个人设置</a>
+					</div>
+				</div>
+				<div class="right-section fr">
+					<div class="show-nav clearfix">
+						<span class="nav-title">个人设置</span>
+					</div>
+
+					<div class="show-set">
+                    <div class="input-item">
+                    	<div class="name">昵称：</div><div class="input"><input type="text" placeholder="请输入昵称"/></div>
+                    </div>
+                    <div class="input-item">
+                    	<div class="name">性别：</div>
+                    	<div  class="input">
+                    	<label><input type="radio" name="sex" value="0" checked="checked"/>男</label>
+                    	<label><input type="radio" name="sex" value="1"/>女</label>
+                    	</div>
+                    </div>
+                    <div class="input-item">
+                    	<div class="name">绑定手机号：</div><div  class="input"><span>133xxxxx111</span></div>
+                    </div>
+                    <div class="input-item">
+                    	<div class="name">个人简介：</div><div  class="input"><textarea></textarea></div>
+                    </div>
+                    <div class="input-item">
+                    	<div class="name"></div><div  class="input">
+                    		<input type="submit" value="提交"/>
+                    	</div>
+                    </div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="footer">
+
+		</div>
+
+		
+
+	</body>
+	<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/template-web.js"></script>
+	<script type="text/javascript" src="js/layer.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	
+	<script>
+		//上传图片
+		$('.upload input').bind('change', function() {
+			var file = this.files[0];
+			if(!/image\/png/.test(file.type) && !/image\/jpeg/.test(file.type) && !/image\/bmp/.test(file.type) && !/image\/jpg/.test(file.type)) {
+				alert('上传的不是jpg、bmp、png格式的图片');
+				$(this).val('');
+				return false;
+			}
+
+			//		var imgSize = file.size;
+			//		console.log(imgSize);
+			//		if(imgSize > 10 * 1024 * 1024) {
+			//			alert('上传的图片的大于10M,请重新选择');
+			//			$(this).val('');
+			//			return false;
+			//		}
+
+			var URL = window.URL || window.webkitURL;
+			var imgURL = URL.createObjectURL(this.files[0]);
+			$('.tx img').attr('src', imgURL);
+		})
+	</script>
+
+</html>

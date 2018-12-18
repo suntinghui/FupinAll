@@ -1,0 +1,62 @@
+.router{
+	font-size: 12px;
+	color: #333333;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+.router a{
+	color: #666666;
+}
+.left-section{
+	width: 200px;
+	border: 1px solid #DDDDDD;
+}
+.left-section a{
+	display: block;
+	height: 60px;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+	line-height: 60px;
+}
+.left-section a:last-child{
+	border: none;
+}
+.left-section a.active{
+	color: #FFFFFF;
+	background: #0160D3;
+	background-image: url(../img/icon/new-sj.png);
+	background-position:  138px center;
+	background-repeat: no-repeat; 
+}
+.right-section {
+	width: 920px;
+	padding: 30px;
+	border: 1px solid #DDDDDD;
+	padding-bottom: 0;
+}
+.right-section li{
+	height: 30px;
+	line-height: 30px;
+}
+.right-section li a{
+	display: block;
+	height: 100%;
+}
+.right-section li em{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url(../img/icon/block-arrow.png) no-repeat center 100%;
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-top: -3px;
+}
+.right-section li .title{
+	width: 750px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.right-section li .time{
+	float: right;
+	color: #666666;
+}

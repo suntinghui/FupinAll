@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.7.1/skins/default/aliplayer-min.css" />
+    <link rel="stylesheet" href="css/video.css"/>
+</head>
+
+<body class="page">
+<div class="header container"></div>
+<div class="nav">
+    <ul>
+        <li class="active">
+            <a href="index.html">首页</a>
+        </li>
+        <li>
+            <a href="people-stage.html">百姓大舞台</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">农业科学</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">法制剧场</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">少儿乐园</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">文化讲堂</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">经典影片</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">职业技能</a>
+        </li>
+    </ul>
+</div>
+
+<div class="video-box">
+    <div class="container">
+        <div class="video fl">
+            <div  class="prism-player" id="player"></div>
+        </div>
+        <div class="movie-list">
+            <p class="label">最新视频</p>
+            <ul id="list">
+
+            </ul>
+        </div>
+
+        <p class="title"></p>
+    </div>
+</div>
+
+<div class="container center">
+    <p class="label">视频简介</p>
+    <p id="content"></p>
+</div>
+<div class="footer"></div>
+
+<!---------数据渲染------- -->
+
+<script id="movieHtml" type="text/html">
+    {{each list}}
+    <li>
+        <a href="{{$value.src}}">
+            <img src="{{$value.img}}" alt="">
+            <span class="time">{{$value.time}}</span>
+            <div class="box">
+                <p class="title">{{$value.title}}</p>
+                <p class="column">栏目：{{$value.column}}</p>
+                <p class="play">{{$value.play}}</p>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+
+
+</body>
+<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/layer.js"></script>
+<script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.7.1/aliplayer-min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/video.js"></script>
+</html>

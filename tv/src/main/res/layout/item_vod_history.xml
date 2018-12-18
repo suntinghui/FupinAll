@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_main_layout"
+    style="@style/recyclerview_item_ll">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/recyclerview_item_image_height"
+        android:background="@drawable/bg_cornor">
+
+        <ImageView
+            android:id="@+id/iv_item"
+            style="@style/recyclerview_item_iv"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_999999"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_left"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                style="@style/middle_color_FFFFFF_text"
+                android:text="2000-01-01"/>
+
+            <TextView
+                android:id="@+id/tv_right"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                style="@style/middle_color_FFFFFF_text"
+                android:text="50%"
+                android:visibility="gone"/>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_item_tip"
+        android:background="@color/color_transparent"
+        android:gravity="center_vertical"
+        style="@style/recyclerview_item_tv"/>
+</LinearLayout>
+

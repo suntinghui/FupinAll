@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/common_background">
+
+    <include layout="@layout/common_title2" />
+
+    <View style="@style/common_line_h" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                style="@style/middle_color_FFFFFF_text"/>
+
+            <TextView
+                android:id="@+id/tv_publishTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                style="@style/middle_color_FFFFFF_text"/>
+
+            <LinearLayout
+                android:id="@+id/ll_outLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/tv_newsDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/middle_color_FFFFFF_text"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

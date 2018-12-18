@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pagination.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+
+<body class="page">
+<div class="header container"></div>
+<div class="nav">
+    <ul>
+        <li class="active">
+            <a href="index.html">首页</a>
+        </li>
+        <li>
+            <a href="people-stage.html">百姓大舞台</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">农业科学</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">法制剧场</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">少儿乐园</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">文化讲堂</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">经典影片</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">职业技能</a>
+        </li>
+    </ul>
+</div>
+
+<img class="banner" src="img/banner.jpg">
+
+<div class="container center">
+
+    <div class="title-line">
+        <span>新闻资讯</span>
+        <a class="fr" href="news.html">更多>></a>
+    </div>
+
+    <div class="news-box">
+        <div class="news-item" id="headline"></div>
+        <div class="news-item" id="news"></div>
+        <div id="inform"></div>
+    </div>
+
+    <div class="title-line">
+        <span>视频</span>
+        <div class="tab">
+            <a class="active">最新</a>
+            <a>最热</a>
+        </div>
+        <a class="fr" href="movie.html">更多>></a>
+    </div>
+
+    <div class="">
+        <div class="movie" id="movieNew"></div>
+        <div class="movie" id="movieHot"></div>
+    </div>
+
+    <div class="title-line">
+        <span>全民直播</span>
+        <a class="fr" href="live.html">更多>></a>
+    </div>
+
+    <div id="live" class="live-list"></div>
+
+    <div id="ad"></div>
+
+
+</div>
+<div class="footer"></div>
+
+<!-- -------数据渲染------- -->
+<script id="headlineHtml" type="text/html">
+    <img src="{{img}}" alt="">
+    <p class="title">{{title}}</p>
+    <p>{{details}}<a href="{{src}}">【查看详情】</a></p>
+</script>
+
+<script id="newsHtml" type="text/html">
+    <p class="title text-ellipsis">{{title}}</p>
+    {{each list}}
+    <a class="news text-ellipsis" href="{{$value.src}}">{{$value.title}}</a>
+    {{/each}}
+    {{each link}}
+    <a class="new-img" href="{{$value.src}}">
+        <img src="{{$value.img}}" alt="">
+        <p class="text-ellipsis">{{$value.title}}</p>
+    </a>
+    {{/each}}
+</script>
+
+<script id="informHtml" type="text/html">
+    {{each list}}
+    <a class="text-ellipsis" href="{{$value.src}}">{{$value.title}}</a>
+    {{/each}}
+</script>
+
+<script id="movieNewHtml" type="text/html">
+    {{each list}}
+    <a href="{{$value.src}}">
+        <img src="{{$value.img}}" alt="">
+        <p class="time">{{$value.time}}</p>
+        <p class="title">{{$value.title}}</p>
+        <p class="play">{{$value.play}}次播放</p>
+    </a>
+    {{/each}}
+</script>
+
+<script id="movieHotHtml" type="text/html">
+    {{each list}}
+    <a href="{{$value.src}}">
+        <img src="{{$value.img}}" alt="">
+        <p class="time">{{$value.time}}</p>
+        <p class="title">{{$value.title}}</p>
+        <p class="play">{{$value.play}}次播放</p>
+    </a>
+    {{/each}}
+</script>
+
+<script id="liveHtml" type="text/html">
+    {{each list}}
+    <a href="{{$value.src}}" class="item">
+        <img class="img" src="{{$value.img}}" alt="">
+        <p class="title text-ellipsis">{{$value.title}}</p>
+        <div class="fl person">
+            <img src="{{$value.headImg}}" alt="">
+            <span>{{$value.name}}</span>
+        </div>
+        <div class="fr person-num">
+            {{$value.personNum}}
+        </div>
+    </a>
+    {{/each}}
+</script>
+
+<script id="adHtml" type="text/html">
+    <img src="{{img}}" alt="">
+    <span>广告</span>
+</script>
+</body>
+<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<script type="text/javascript" src="js/layer.js" ></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>

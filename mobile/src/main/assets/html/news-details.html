@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pagination.css"/>
+    <link rel="stylesheet" href="css/news-details.css"/>
+</head>
+
+<body class="page">
+<div class="header container"></div>
+<div class="nav">
+    <ul>
+        <li>
+            <a href="index.html">首页</a>
+        </li>
+        <li class="active">
+            <a href="people-stage.html">百姓大舞台</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">农业科学</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">法制剧场</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">少儿乐园</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">文化讲堂</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">经典影片</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">职业技能</a>
+        </li>
+    </ul>
+</div>
+
+<img class="banner" src="img/banner.jpg">
+<div class="gray-wrap">
+    <div class="container center">
+        <div class="crumbs">
+            <a>首页</a> >
+            <a>新闻资讯</a> >
+            <a>题目</a>
+        </div>
+        <div class="white-wrap" id="content">
+
+        </div>
+    </div>
+</div>
+
+<div class="footer"></div>
+
+<!-- -------数据渲染------- -->
+<script id="contentHtml" type="text/html">
+    <h1>{{title}}</h1>
+    <p class="time">发布时间{{time}}</p>
+    <img src="{{img}}" alt="">
+    <p class="text">{{details}}</p>
+</script>
+
+</body>
+<script type="text/javascript" src="js/jQuery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<script type="text/javascript" src="js/layer.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/news-details.js"></script>
+</html>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="common_dialog_hint">提示</string>
+    <string name="common_comfirm">确认</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_no_data">暂无数据</string>
+
+    <!--<string name="app_name">山西省文化厅基层综合数字服务平台</string>-->
+    <string name="app_name">山西基层公共文化数字服务管理平台</string>
+
+    <string name="title_me">个人中心</string>
+    <string name="title_vod_history">播放记录</string>
+    <string name="title_vod_search">搜索视频</string>
+    <string name="title_app_download">APP下载</string>
+
+
+</resources>

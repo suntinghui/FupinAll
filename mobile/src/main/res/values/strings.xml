@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">山西基层公共文化数字服务管理平台</string>
+
+    <string name="common_dialog_hint">提示</string>
+    <string name="common_comfirm">确认</string>
+    <string name="common_cancel">取消</string>
+
+    <string name="title_cache_file">离线缓存</string>
+    <string name="title_video_play">视频播放</string>
+    <string name="title_video_upload">视频上传</string>
+    <string name="title_box_share">机顶盒共享</string>
+    <string name="title_my_file">文件浏览</string>
+    <string name="title_file_img_show">图片浏览</string>
+    <string name="title_box_source">媒体源</string>
+    <string name="txt_box_share_dms_count">已发现%1$s个媒体源</string>
+
+</resources>

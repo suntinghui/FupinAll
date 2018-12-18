@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>首页</title>
+	</head>
+
+	<body>
+		<div class="logo fl">logo</div>
+		<div class="download fr">APP下载</div>
+		<!--<div class="login fr">
+			<a href="javascript:void(0)" id="login">登录</a>丨
+			<a href="javascript:void(0)" id="register">注册</a>
+		</div>-->
+		<div class="login fr has">
+			<div><img src="img.jpg"/></div><span>喵呼啊~</span>
+		</div>
+		<div class="search-box fr">
+			<input type="text">
+			<i class="filter"></i>
+			<a class="search">搜索</a>
+		</div>
+	</body>
+	<script>
+		$('#login').on('click', function() {
+			layer.ready(function() {
+				layer.open({
+					type: 2,
+					area: ['400px', '430px'],
+					closeBtn: 2,
+					title: false,
+					content: 'http://192.168.31.162:8020/sxfp-html/common/login.html?type=0'
+				});
+			});
+		});
+		$('#register').on('click', function() {
+			layer.ready(function() {
+				layer.open({
+					type: 2,
+					area: ['400px', '430px'],
+					closeBtn: 2,
+					title: false,
+					content: 'http://192.168.31.162:8020/sxfp-html/common/login.html?type=1'
+				});
+			});
+		});
+	</script>
+
+</html>

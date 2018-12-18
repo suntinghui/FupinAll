@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:gravity="center_horizontal">
+
+    <!--<TextView
+        android:id="@+id/tv_item"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="资讯类别"
+        android:focusable="true"
+        android:textColor="@drawable/bg_selector_white"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/dimen_middle"/>-->
+
+    <TextView
+        android:id="@+id/tv_item"
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:text="系统消息"
+        android:padding="20dp"
+        android:drawablePadding="16dp"
+        android:focusable="true"
+        android:drawableTop="@mipmap/icon_video_type_wenhua"
+        android:textColor="@drawable/bg_selector_white"
+        android:gravity="center"
+        android:background="@drawable/bg_me_focus_effective"
+        android:textSize="@dimen/dimen_middle"/>
+</LinearLayout>
+
