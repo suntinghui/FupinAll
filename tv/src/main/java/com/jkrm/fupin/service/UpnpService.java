@@ -1,13 +1,11 @@
 package com.jkrm.fupin.service;
 
-import android.app.Activity;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.database.Cursor;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -17,25 +15,16 @@ import android.os.IBinder;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.support.v4.content.FileProvider;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
 
-import com.jkrm.fupin.R;
-import com.jkrm.fupin.base.BaseActivity;
 import com.jkrm.fupin.base.MyApp;
 import com.jkrm.fupin.constants.MyConstants;
-import com.jkrm.fupin.ui.activity.MainActivity2;
 import com.jkrm.fupin.upnp.dmp.DeviceItem;
 import com.jkrm.fupin.upnp.dmr.ZxtMediaRenderer;
 import com.jkrm.fupin.upnp.dms.ContentNode;
 import com.jkrm.fupin.upnp.dms.ContentTree;
 import com.jkrm.fupin.upnp.dms.MediaServer;
-import com.jkrm.fupin.upnp.util.FileUtil;
 import com.jkrm.fupin.upnp.util.FixedAndroidHandler;
 import com.jkrm.fupin.upnp.util.ImageUtil;
-import com.jkrm.fupin.util.FileShareUtil;
 import com.jkrm.fupin.util.MyFileUtil;
 import com.jkrm.fupin.util.MyLog;
 import com.jkrm.fupin.util.MyUtil;
@@ -69,7 +58,6 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -811,6 +799,7 @@ public class UpnpService extends Service implements Handler.Callback {
                 ContentTree.VIDEO_ID, videoContainer));
         for (File file : mVideoList) {
             String titleLocalVideo = file.getName();
+            String id = ContentTree.VIDEO_PREFIX + titleLocalVideo;
             String creatorLocalVideo = "数字服务";
             String filePathLocalVideo = file.getAbsolutePath();
             String mimeTypeLocalVideo = MyFileUtil.getMIMEType(file);
@@ -823,7 +812,10 @@ public class UpnpService extends Service implements Handler.Callback {
             if (null != dbDataLocalVideo) {
                 titleLocalVideo = dbDataLocalVideo;
             }
-            MyLog.d("查询的视频路径 filePath: " + filePathLocalVideo + " ,title: " + titleLocalVideo + " ,creator: " + creatorLocalVideo + " ,mimeType: " + mimeTypeLocalVideo + " ,size: " + sizeLocalVideo
+//            if("1".equals(titleLocalVideo)) {
+//                titleLocalVideo = "资源1(原名1" + mimeTypeLocalVideo + ")";
+//            }
+            MyLog.d("查询的视频路径文件夹 filePath: " + filePathLocalVideo + " ,title: " + titleLocalVideo + " ,creator: " + creatorLocalVideo + " ,mimeType: " + mimeTypeLocalVideo + " ,size: " + sizeLocalVideo
                     + " ,duration: " + durationLocalVideo + " ,resolution: " + resolutionLocalVideo + " ,description: " + descriptionLocalVideo);
             Res res = new Res(new MimeType(mimeTypeLocalVideo.substring(0,
                     mimeTypeLocalVideo.indexOf('/')), mimeTypeLocalVideo.substring(mimeTypeLocalVideo
@@ -835,7 +827,7 @@ public class UpnpService extends Service implements Handler.Callback {
                     + (durationLocalVideo % (1000 * 60)) / 1000);
             res.setResolution(resolutionLocalVideo);
 
-            VideoItem videoItem = new VideoItem(titleLocalVideo, ContentTree.VIDEO_ID,
+            VideoItem videoItem = new VideoItem(id, ContentTree.VIDEO_ID,
                     titleLocalVideo, creatorLocalVideo, res);
 
             // add video thumb Property
@@ -850,8 +842,8 @@ public class UpnpService extends Service implements Handler.Callback {
             videoContainer.addItem(videoItem);
             videoContainer
                     .setChildCount(videoContainer.getChildCount() + 1);
-            ContentTree.addNode(titleLocalVideo,
-                    new ContentNode(titleLocalVideo, videoItem, filePathLocalVideo));
+            ContentTree.addNode(id,
+                    new ContentNode(id, videoItem, filePathLocalVideo));
         }
         Cursor cursor;
         String[] videoColumns = { MediaStore.Video.Media._ID,
@@ -906,7 +898,7 @@ public class UpnpService extends Service implements Handler.Callback {
                         + (duration % (1000 * 60 * 60)) / (1000 * 60) + ":"
                         + (duration % (1000 * 60)) / 1000);
                 res.setResolution(resolution);
-                MyLog.d("查询的视频路径 filePath: " + filePath + " ,title: " + title + " ,creator: " + creator + " ,mimeType: " + mimeType + " ,size: " + size
+                MyLog.d("查询的视频路径资源库 filePath: " + filePath + " ,title: " + title + " ,creator: " + creator + " ,mimeType: " + mimeType + " ,size: " + size
                         + " ,duration: " + duration + " ,resolution: " + resolution + " ,description: " + description);
                 VideoItem videoItem = new VideoItem(id, ContentTree.VIDEO_ID,
                         title, creator, res);
