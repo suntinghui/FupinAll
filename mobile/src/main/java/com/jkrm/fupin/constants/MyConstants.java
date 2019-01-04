@@ -16,7 +16,8 @@ public class MyConstants {
          * 扶贫当前测试URL基地址
          */
 //        public static final String BASE_URL = "http://111.13.56.38:9999/api/";
-        public static final String BASE_URL = "http://47.92.175.158:8080/";
+//        public static final String BASE_URL = "http://47.92.175.158:8080/";
+        public static final String BASE_URL = "http://60.205.213.234:8080/";
 
         public static final String UPDATE_DOWNLOAD_URL = "https://tianyu-bucket.oss-cn-hangzhou.aliyuncs.com/sxfp-version/android-version/fupin_mobile.apk";
     }
