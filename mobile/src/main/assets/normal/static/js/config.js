@@ -1,6 +1,5 @@
 export default {
-  // "baseUrl": "http://111.13.56.38:9999/api/",
-  "baseUrl": "http://47.92.175.158:8080/",
+  "baseUrl": "http://60.205.213.234:8080/",
 
   //video
   "videoList": "api/getHomePageVideoList",
