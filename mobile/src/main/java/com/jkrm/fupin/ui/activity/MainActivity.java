@@ -51,8 +51,10 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
     LinearLayout mLlRoot;
     private BridgeWebView mBridgeWebView;
     private AgentWeb mAgentWeb;
-    private static final String URL = "file:///android_asset/normal/index.html";
-//    private static final String URL = "file:///android_asset/jsbridge/demo.html";
+
+    //private static final String URL = "file:///android_asset/normal/index.html"; // 本地
+    private static final String URL = "http://60.205.213.234:8080/WebApp"; // 网络
+
     private long mBackPressed;
     private static final int TIME_INTERVAL = 2000;
     private static final int DOWNLOAD_HANDLE = 0;
