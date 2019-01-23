@@ -132,7 +132,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
                         @Override
                         public void granted() {
                             toClass(OssUploadActivity.class, bundle, false);
-                            //                toClass(MyUploadActivity.class, null, false);
+                            // toClass(MyUploadActivity.class, null, false);
 
                         }
 
