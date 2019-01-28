@@ -16,8 +16,8 @@ android {
         applicationId rootProject.ext.applicationId
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 127
-        versionName "1.2.7"
+        versionCode 128
+        versionName "1.2.8"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -93,4 +93,5 @@ dependencies {
     compile(name: 'AliyunVodPlayer-3.4.6', ext: 'aar')
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'com.aliyun.dpa:oss-android-sdk:2.4.5'
+    compile 'com.zzhoujay.richtext:richtext:3.0.7'
 }

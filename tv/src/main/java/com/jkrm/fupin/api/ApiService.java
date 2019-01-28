@@ -1,10 +1,7 @@
 package com.jkrm.fupin.api;
 
 
-
-
 import com.jkrm.fupin.bean.CollectionInfoListBean;
-import com.jkrm.fupin.bean.HomePageBean;
 import com.jkrm.fupin.bean.HomePageListBean;
 import com.jkrm.fupin.bean.LoginBean;
 import com.jkrm.fupin.bean.MoreNewsListResultBean;
@@ -127,6 +124,13 @@ public interface ApiService {
      */
     @POST("api/getMoreNewsInfoList")
     Observable<ResponseBean<MoreNewsListResultBean>> getMoreNewsInfoList(@Body RequestBody body);
+
+    /**
+     * APP 端新闻资讯列表展示接口
+     * @return
+     */
+    @POST("api/getNoticesDetailById")
+    Observable<ResponseBean<NewsBean.NoticesListBean>> getNoticesDetailById(@Body RequestBody body);
 
     /**
      * 获取OSS指定bucket下的文件对象及子文件夹对象列表

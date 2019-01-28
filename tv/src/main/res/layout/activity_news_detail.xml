@@ -43,6 +43,25 @@
                 android:layout_height="match_parent"
                 style="@style/middle_color_FFFFFF_text"
                 android:layout_marginTop="10dp"/>
+            
+            <LinearLayout
+                android:id="@+id/ll_annex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="附件"
+                    style="@style/middle_size_style"
+                    android:textColor="@color/white"/>
+                
+                <com.jkrm.fupin.widgets.MyListView
+                    android:id="@+id/lv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

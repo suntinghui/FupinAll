@@ -1,29 +1,35 @@
 package com.jkrm.fupin.ui.activity.news;
 
-import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jkrm.fupin.R;
-import com.jkrm.fupin.base.BaseActivity;
+import com.jkrm.fupin.base.BaseMvpActivity;
 import com.jkrm.fupin.bean.NewsBean.NoticesListBean;
 import com.jkrm.fupin.bean.NewsBean.NoticesListBean.NoticeFilesBean;
+import com.jkrm.fupin.bean.request.NewDetailRequestBean;
 import com.jkrm.fupin.constants.MyConstants;
+import com.jkrm.fupin.mvp.contracts.NewsDetailContract;
+import com.jkrm.fupin.mvp.presenters.NewsDetailPresenter;
+import com.jkrm.fupin.util.MyLog;
 import com.jkrm.fupin.util.MyUtil;
+import com.jkrm.fupin.widgets.MyListView;
 import com.zzhoujay.richtext.RichText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by hzw on 2018/8/20.
  */
 
-public class NewsDetailActivity extends BaseActivity {
+public class NewsDetailActivity extends BaseMvpActivity<NewsDetailPresenter> implements NewsDetailContract.View {
 
     @BindView(R.id.tv_titleName)
     TextView mTvTitleName;
@@ -35,6 +41,10 @@ public class NewsDetailActivity extends BaseActivity {
     TextView mTvNewsDetail;
     @BindView(R.id.ll_outLayout)
     LinearLayout mLlOutLayout;
+    @BindView(R.id.lv_list)
+    MyListView mLvList;
+    @BindView(R.id.ll_annex)
+    LinearLayout mLlAnnex;
 
     private NoticesListBean mNoticesListBean;
 
@@ -50,7 +60,19 @@ public class NewsDetailActivity extends BaseActivity {
         mTvTitleName.setText("资讯 · 详情");
         mTvTitle.setText(mNoticesListBean.getTitle());
         mTvPublishTime.setText("发布时间: " + mNoticesListBean.getCreatetime());
-        List<NoticeFilesBean> noticeFilesBeanList = mNoticesListBean.getNoticeFiles();
+        NewDetailRequestBean requestBean = new NewDetailRequestBean();
+        requestBean.setId(mNoticesListBean.getId());
+        mPresenter.getNewsDetail(requestBean);
+    }
+
+    @Override
+    protected NewsDetailPresenter createPresenter() {
+        return new NewsDetailPresenter(this);
+    }
+
+    @Override
+    public void getNewsDetailSuccess(NoticesListBean bean) {
+        List<NoticeFilesBean> noticeFilesBeanList = bean.getNoticeFiles();
         if (!MyUtil.isEmptyList(noticeFilesBeanList)) {
             for (NoticeFilesBean tempBean : noticeFilesBeanList) {
                 ImageView imageView = new ImageView(mActivity);
@@ -60,12 +82,23 @@ public class NewsDetailActivity extends BaseActivity {
         }
         RichText.from("").into(mTvNewsDetail);
         RichText.from(mNoticesListBean.getContent()).into(mTvNewsDetail);
+        if(MyUtil.isEmptyList(bean.getZipFiles())){
+            mLlAnnex.setVisibility(View.GONE);
+        } else {
+            List<String> annexNameList = new ArrayList<>();
+            for(NoticesListBean.ZipFilesBean zipFilesBean : bean.getZipFiles()) {
+                annexNameList.add(zipFilesBean.getOrginname());
+            }
+            MyLog.d("新闻资讯详情, 附件列表: " + annexNameList);
+            mLlAnnex.setVisibility(View.VISIBLE);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                    mActivity, R.layout.item_new_detail, annexNameList);
+            mLvList.setAdapter(adapter);
+        }
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public void getNewsDetailFail(String msg) {
+
     }
 }

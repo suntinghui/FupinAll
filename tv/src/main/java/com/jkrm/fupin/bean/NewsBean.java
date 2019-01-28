@@ -59,6 +59,7 @@ public class NewsBean implements Serializable{
         private String mid;
         private String title;
         private List<NoticeFilesBean> noticeFiles;
+        private List<ZipFilesBean> zipFiles;
 
         public String getContent() {
             return content;
@@ -108,7 +109,72 @@ public class NewsBean implements Serializable{
             this.noticeFiles = noticeFiles;
         }
 
+        public List<ZipFilesBean> getZipFiles() {
+            return zipFiles;
+        }
+
+        public void setZipFiles(List<ZipFilesBean> zipFiles) {
+            this.zipFiles = zipFiles;
+        }
+
         public static class NoticeFilesBean implements Serializable{
+            /**
+             * id : d953c0286f614b8fb8fc703e36012d34
+             * metatype : png
+             * name : 测试文件名
+             * orginname : 测试原始文件名
+             * osskey : woqunianmailegebiao
+             */
+
+            private String id;
+            private String metatype;
+            private String name;
+            private String orginname;
+            private String osskey;
+
+            public String getId() {
+                return id;
+            }
+
+            public void setId(String id) {
+                this.id = id;
+            }
+
+            public String getMetatype() {
+                return metatype;
+            }
+
+            public void setMetatype(String metatype) {
+                this.metatype = metatype;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getOrginname() {
+                return orginname;
+            }
+
+            public void setOrginname(String orginname) {
+                this.orginname = orginname;
+            }
+
+            public String getOsskey() {
+                return osskey;
+            }
+
+            public void setOsskey(String osskey) {
+                this.osskey = osskey;
+            }
+        }
+
+
+        public static class ZipFilesBean implements Serializable{
             /**
              * id : d953c0286f614b8fb8fc703e36012d34
              * metatype : png
