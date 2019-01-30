@@ -60,6 +60,8 @@ public class NewsDetailActivity extends BaseMvpActivity<NewsDetailPresenter> imp
         mTvTitleName.setText("资讯 · 详情");
         mTvTitle.setText(mNoticesListBean.getTitle());
         mTvPublishTime.setText("发布时间: " + mNoticesListBean.getCreatetime());
+        RichText.from("").into(mTvNewsDetail);
+        RichText.from(mNoticesListBean.getContent()).into(mTvNewsDetail);
         NewDetailRequestBean requestBean = new NewDetailRequestBean();
         requestBean.setId(mNoticesListBean.getId());
         mPresenter.getNewsDetail(requestBean);
@@ -80,8 +82,6 @@ public class NewsDetailActivity extends BaseMvpActivity<NewsDetailPresenter> imp
                 mLlOutLayout.addView(imageView);
             }
         }
-        RichText.from("").into(mTvNewsDetail);
-        RichText.from(mNoticesListBean.getContent()).into(mTvNewsDetail);
         if(MyUtil.isEmptyList(bean.getZipFiles())){
             mLlAnnex.setVisibility(View.GONE);
         } else {
