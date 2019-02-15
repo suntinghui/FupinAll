@@ -1,16 +1,24 @@
 package com.jkrm.fupin.ui.activity;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.FileProvider;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.ViewGroup;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 import com.github.lzyzsd.jsbridge.BridgeHandler;
@@ -18,6 +26,7 @@ import com.github.lzyzsd.jsbridge.BridgeWebView;
 import com.github.lzyzsd.jsbridge.BridgeWebViewClient;
 import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.jkrm.fupin.R;
+import com.jkrm.fupin.annex.DownloadUtil;
 import com.jkrm.fupin.base.BaseActivity;
 import com.jkrm.fupin.base.MyApp;
 import com.jkrm.fupin.bean.CacheFileBean;
@@ -34,8 +43,9 @@ import com.jkrm.fupin.util.NetworkUtil;
 import com.jkrm.fupin.util.PermissionUtil;
 import com.just.library.AgentWeb;
 import com.just.library.WebDefaultSettingsManager;
+import com.koolpos.download.bean.DownloadMsgBean;
+import com.koolpos.download.constants.DownloadConstant;
 
-import org.fourthline.cling.android.NetworkUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,10 +61,11 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
     LinearLayout mLlRoot;
     private BridgeWebView mBridgeWebView;
     private AgentWeb mAgentWeb;
-
-    //private static final String URL = "file:///android_asset/normal/index.html"; // 本地
-    private static final String URL = "http://60.205.213.234:8080/WebApp"; // 网络
-
+//    private static final String URL = "http://111.13.56.38:9999/fupin/index.html";
+    private static final String URL = "http://60.205.213.234:8080/WebApp/";
+//    private static final String URL = "file:///android_asset/normal/index.html";
+//    private static final String URL = "file:///android_asset/dist/index.html";
+//    private static final String URL = "file:///android_asset/html/index.html";
     private long mBackPressed;
     private static final int TIME_INTERVAL = 2000;
     private static final int DOWNLOAD_HANDLE = 0;
@@ -66,6 +77,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
     private String videoId = "";
     private String resTitle = "";
     private NetWatchdog netWatchdog;
+
+    private DownloadReceiver mDownloadReceiver;
 
     @Override
     protected int getContentId() {
@@ -95,7 +108,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
 
         mBridgeWebView = new BridgeWebView(mActivity);
         mAgentWeb = AgentWeb.with(this)//
-                .setAgentWebParent(mLlRoot, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))//
+                .setAgentWebParent(mLlRoot, new LinearLayout.LayoutParams(-1, -1))//
                 .useDefaultIndicator()
                 .setIndicatorColor(getResources().getColor(R.color.color_0160D4))
                 //.setIndicatorColorWithHeight(-1, 2)//
@@ -107,6 +120,54 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
                 .createAgentWeb()//
                 .ready()
                 .go(URL);
+
+        /**
+         * JS调用JAVA
+         * 参数
+         * 第一个：订阅的方法名
+         * 第二个: 回调Handler , 参数返回js请求的resqustData,function.onCallBack（）回调到js，调用function(responseData)
+         */
+        mBridgeWebView.registerHandler("downloadNewsFile", new BridgeHandler() {
+
+            @Override
+            public void handler(final String data, CallBackFunction function) {
+                MyLog.d("downloadNewsFile data: " + data);
+                function.onCallBack("H5调用android上传回调");
+                JSONObject json = null;
+                try {
+                    json = new JSONObject(data);
+                    final String url = json.optString("url");
+                    final String originName = json.optString("originName");
+                    final Bundle bundle = new Bundle();
+//                    bundle.putString(MyConstants.Params.COMMON_PARAMS, userId);
+                    PermissionUtil.getInstance().checkPermission(mActivity, new String[]{
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    }, new IPermissionListener() {
+                        @Override
+                        public void granted() {
+//                            showMsg("下载附件url: " + url + " ,originName: " + originName);
+                            DownloadUtil.downloadFile(mActivity, url, originName);
+                        }
+
+                        @Override
+                        public void shouldShowRequestPermissionRationale() {
+                            PermissionUtil.toAppSetting(mActivity);
+                        }
+
+                        @Override
+                        public void needToSetting() {
+                            PermissionUtil.toAppSetting(mActivity);
+                        }
+                    });
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    showDialog("下载附件出错");
+                }
+
+            }
+
+        });
 
         /**
          * JS调用JAVA
@@ -132,7 +193,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
                         @Override
                         public void granted() {
                             toClass(OssUploadActivity.class, bundle, false);
-                            // toClass(MyUploadActivity.class, null, false);
+                            //                toClass(MyUploadActivity.class, null, false);
 
                         }
 
@@ -292,22 +353,22 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         /**
          * JAVA调用JS
          */
-        mBridgeWebView.callHandler("functionInJs", "APP端调用JS端传参了", new CallBackFunction() {
-            @Override
-            public void onCallBack(String data) {
-                showMsg("APP端收到了来自H5 js的数据data： " + data);
-                MyLog.d("callHandler data:" + data);
-            }
-        });
-
-        mBridgeWebView.send("hello");
+//        mBridgeWebView.callHandler("functionInJs", "APP端调用JS端传参了", new CallBackFunction() {
+//            @Override
+//            public void onCallBack(String data) {
+//                showMsg("APP端收到了来自H5 js的数据data： " + data);
+//                MyLog.d("callHandler data:" + data);
+//            }
+//        });
+//
+//        mBridgeWebView.send("hello");
     }
 
     private WebChromeClient mWebChromeClient = new WebChromeClient() {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
             //  super.onProgressChanged(view, newProgress);
-            Log.i(TAG, "onProgressChanged:" + newProgress + "  view:" + view);
+            MyLog.d(TAG, "onProgressChanged:" + newProgress + "  view:" + view);
         }
 
         @Override
@@ -321,6 +382,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
 //            mToolbarTitle.setText(title);
             MyLog.d("title: " + title);
         }
+
+
     };
 
 
@@ -492,5 +555,118 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         }
         dismissLoadingDialog();
         return false;
+    }
+
+    class CustomWebViewClient extends WebViewClient {
+        private BridgeWebView webView;
+
+        public CustomWebViewClient(BridgeWebView webView) {
+            this.webView = webView;
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//            try {
+//                url = URLDecoder.decode(url, "UTF-8");
+//            } catch (UnsupportedEncodingException e) {
+//                e.printStackTrace();
+//            }
+//            return super.shouldOverrideUrlLoading(view, url);
+            webView.loadUrl(url);
+            return true;
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+
+        }
+
+        @Override
+        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+            super.onReceivedError(view, errorCode, description, failingUrl);
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+//            super.onReceivedSslError(view, handler, error);
+            handler.proceed();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        mAgentWeb.getWebLifeCycle().onPause();
+        unregisterReceiver();
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onResume() {
+        mAgentWeb.getWebLifeCycle().onResume();
+        registerReceiver();
+        super.onResume();
+    }
+
+    private void registerReceiver() {
+        mDownloadReceiver = new DownloadReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(DownloadConstant.ACTION_DOWNLOAD_ING);
+        intentFilter.addAction(DownloadConstant.ACTION_DOWNLOAD_SUCCESS);
+        intentFilter.addAction(DownloadConstant.ACTION_DOWNLOAD_FAIL);
+        registerReceiver(mDownloadReceiver, intentFilter);
+    }
+
+    private void unregisterReceiver() {
+        if(mDownloadReceiver != null) {
+            unregisterReceiver(mDownloadReceiver);
+            mDownloadReceiver = null;
+        }
+    }
+
+    class DownloadReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            DownloadMsgBean downloadMsgBean = (DownloadMsgBean) intent.getSerializableExtra(DownloadConstant.COMMON_PARAMS);
+            if (DownloadConstant.ACTION_DOWNLOAD_ING.equals(action)) {
+                MyLog.d("DownloadReceiver 文件下载中, 下载进度" + downloadMsgBean.getDownloadSize());
+                showLoadingDialog("文件已加载" + downloadMsgBean.getDownloadSize() + "%");
+            } else if (DownloadConstant.ACTION_DOWNLOAD_SUCCESS.equals(action)) {
+                MyLog.d("DownloadReceiver 文件下载中, 下载成功");
+                showMsg("文件加载成功");
+                dismissLoadingDialog();
+                String filePath = downloadMsgBean.getFilePath();
+                File file = new File((filePath));
+                try {
+                    Uri uri = null;
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        uri = FileProvider.getUriForFile(context, "com.jkrm.fupin.DownloadProvider", file);
+                    } else {
+                        uri = Uri.fromFile(file);
+                    }
+                    Intent intentOpen = new Intent(Intent.ACTION_VIEW);
+                    intentOpen.addCategory(Intent.CATEGORY_DEFAULT);
+                    intentOpen.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    intentOpen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intentOpen.setDataAndType(uri, MyFileUtil.getMIMEType(file));
+                    startActivity(intentOpen);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showDialog("本机无匹配的软件可查看");
+                }
+            } else if (DownloadConstant.ACTION_DOWNLOAD_FAIL.equals(action)) {
+                MyLog.d("DownloadReceiver 文件下载中, 下载失败, 原因: " + downloadMsgBean.getMessage());
+                showMsg("文件加载失败");
+                dismissLoadingDialog();
+            }
+        }
     }
 }

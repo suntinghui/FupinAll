@@ -2,8 +2,6 @@ package com.jkrm.fupin.base;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,8 +14,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.jkrm.fupin.ui.activity.MainActivity;
 import com.jkrm.fupin.R;
+import com.jkrm.fupin.ui.activity.MainActivity;
 import com.jkrm.fupin.util.StatusBarUtil;
 import com.jkrm.fupin.util.ToastUtil;
 import com.jkrm.fupin.widgets.CustomToolbar;
@@ -68,6 +66,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             mLoadingDialog = new LoadingDialog(this);
         }
         mLoadingDialog.show();
+    }
+
+    protected void showLoadingDialog(String msg) {
+        if (mLoadingDialog == null) {
+            mLoadingDialog = new LoadingDialog(this);
+        }
+        mLoadingDialog.showLoadingDialog(msg);
     }
 
     @Override

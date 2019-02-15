@@ -59,8 +59,22 @@ public class LoadingDialog extends BaseDialog {
 
     public void showLoadingDialog(String msg) {
         TextView tipTextView = (TextView) mDialog.findViewById(R.id.text_view_message);// 提示文字
-        if(null != msg)
+        if(null != msg) {
+            tipTextView.setVisibility(View.VISIBLE);
             tipTextView.setText(msg);
+        }
+        // main.xml中的ImageView
+        final ImageView spaceshipImage = (ImageView) mDialog.findViewById(R.id.img);
+        // 加载动画
+        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(mContext, R.anim.loading_animation);
+        // 使用ImageView显示动画
+        spaceshipImage.startAnimation(hyperspaceJumpAnimation);
+        mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                spaceshipImage.clearAnimation();
+            }
+        });
         mDialog.show();
     }
 

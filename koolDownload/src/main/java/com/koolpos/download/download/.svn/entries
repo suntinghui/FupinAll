@@ -1,0 +1,42 @@
+10
+
+dir
+0
+https://39.98.46.130/svn/shanxifupin/03Code/android/FupinAll/trunk/koolDownload/src/main/java/com/koolpos/download/download
+https://39.98.46.130/svn/shanxifupin
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+1a048981-36da-c142-866a-0f31b29fb71e
+
+DownloadThread.java
+file
+
+
+
+add
+
+FileDownloadThread.java
+file
+
+
+
+add
+
