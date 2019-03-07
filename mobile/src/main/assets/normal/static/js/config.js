@@ -1,5 +1,5 @@
 export default {
-  "baseUrl": "http://60.205.213.234:8080/",
+  "baseUrl": "http://47.92.175.158:8080/",
 
   //video
   "videoList": "api/getHomePageVideoList",

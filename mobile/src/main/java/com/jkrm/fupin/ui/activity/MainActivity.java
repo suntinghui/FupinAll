@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
     private BridgeWebView mBridgeWebView;
     private AgentWeb mAgentWeb;
 //    private static final String URL = "http://111.13.56.38:9999/fupin/index.html";
-    private static final String URL = "http://60.205.213.234:8080/WebApp/";
+    private static final String URL = "http://47.92.175.158:8080/WebApp/";
 //    private static final String URL = "file:///android_asset/normal/index.html";
 //    private static final String URL = "file:///android_asset/dist/index.html";
 //    private static final String URL = "file:///android_asset/html/index.html";
